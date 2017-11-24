@@ -1,3 +1,9 @@
+ProjectRogue/Library/
+ProjectRogue/Temp/
+ProjectRogue/Obj/
+ProjectRogue/Build/
+ProjectRogue/Builds/
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -32,3 +38,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
