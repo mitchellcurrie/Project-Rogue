@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    private Camera cam;
-
     public float speed;
+
+    private Animator anim;
     private Vector3 velocity;
     private Vector3 moveDirection;
+    private Camera cam;
 
 
     // Use this for initialization
     void Start()
     {
         cam = Camera.main;
+        anim = GetComponent<Animator>();
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
@@ -40,6 +44,11 @@ public class PlayerMovement : MonoBehaviour {
         if (h!=0 || v!=0)
         {
             transform.forward = Vector3.Lerp(transform.forward, moveDirection, 0.3f);
+            if (anim) { anim.SetBool("IsWalking", true); }
+        }
+        else
+        {
+            if (anim) { anim.SetBool("IsWalking", false); }
         }
 
         ////////   Basic  //////// 
