@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour {
         if (h!=0 || v!=0)
         {
             transform.forward = Vector3.Lerp(transform.forward, moveDirection, 0.3f);
-            if (anim) { anim.SetBool("IsWalking", true); }
+            if (anim) { anim.SetBool("IsRunning", true); }
         }
         else
         {
-            if (anim) { anim.SetBool("IsWalking", false); }
+            if (anim) { anim.SetBool("IsRunning", false); }
         }
 
         ////////   Basic  //////// 
