@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 11755385}
   - component: {fileID: 11755384}
   - component: {fileID: 11755383}
+  - component: {fileID: 11755388}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -190,13 +191,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11755382}
-  m_LocalRotation: {x: 0.37969834, y: 0, z: 0, w: 0.9251104}
-  m_LocalPosition: {x: 0, y: 5.04, z: -6.21}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 2.077, z: -1.736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44.63, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+--- !u!114 &11755388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11755382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09be6a88a793df4498afeacdb74c129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 798489074}
+  distance: 5
+  sensitivityX: 3
+  sensitivityY: 2
 --- !u!1001 &243157628
 Prefab:
   m_ObjectHideFlags: 0
@@ -206,15 +222,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.016189769
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.009
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
       propertyPath: m_LocalRotation.x
@@ -309,6 +325,10 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
   m_PrefabInternal: {fileID: 243157628}
+--- !u!4 &798489074 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
+  m_PrefabInternal: {fileID: 243157628}
 --- !u!114 &798489075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf2bd551b1bbf84b86c1cd467b2ab7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.07
+  speed: 2
 --- !u!54 &798489076
 Rigidbody:
   m_ObjectHideFlags: 0
