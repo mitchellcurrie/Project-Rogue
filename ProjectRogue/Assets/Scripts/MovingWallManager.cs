@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MovingWallManager : MonoBehaviour {
 
+    public float wallSpawnTime;
     private MovingWall[] wallArray;
     private float wallTimer;
-    
+
+
     // Use this for initialization
-	void Start ()
+    void Start ()
     {
         wallArray = GetComponentsInChildren<MovingWall>();
     }
@@ -18,32 +20,20 @@ public class MovingWallManager : MonoBehaviour {
     {
         wallTimer += Time.deltaTime;
 
-        if (wallTimer > 5.0f)
+        if (wallTimer > wallSpawnTime)
         {
             StartRandomWallMoving();
             wallTimer = 0.0f;
-        }
-
-        for (int i = 0; i < wallArray.Length; i++)
-        {
-            if (wallArray[i].GetIsMoving())
-            {
-                wallArray[i].MoveIn();
-            }
         }
     }
 
     void StartRandomWallMoving()
     {
-        int random = Random.Range(0, wallArray.Length - 1);
+        int random = Random.Range(0, wallArray.Length);
 
-        while (wallArray[random].GetIsMoving() == false)
+        if (!wallArray[random].IsWallOutOfPosition())
         {
-            random = Random.Range(0, wallArray.Length - 1);
+            wallArray[random].SetIsMovingIn(true);
         }
-
-        wallArray[random].SetIsMoving(true);
-
-        Debug.Log("New Wall Moving");
     }   
 }

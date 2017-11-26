@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23608773973538530}
   - component: {fileID: 65262082029809786}
   - component: {fileID: 114763903190990548}
+  - component: {fileID: 54862351277228708}
   m_Layer: 0
-  m_Name: MovingWall (1)
+  m_Name: MovingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351217582652156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 7}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,6 +83,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351217582652156}
   m_Mesh: {fileID: 4300002, guid: df4796b594b970842b69211cb0078c5d, type: 3}
+--- !u!54 &54862351277228708
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351217582652156}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!65 &65262082029809786
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -92,7 +108,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1.99, y: 1.99, z: 1.99}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &114763903190990548
 MonoBehaviour:
@@ -105,3 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e0bdda090c2a140b6da18146bfc8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  North: 0
+  South: 0
+  East: 0
+  West: 0
+  IsMovingIn: 0
+  IsMovingOut: 0
+  OutOfPosition: 0
+  movementDirection: {x: 0, y: 0, z: 0}
+  originalPos: {x: 0, y: 0, z: 0}
