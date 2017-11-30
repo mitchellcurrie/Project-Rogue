@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float speed;
     public float jumpDelay;
+    public float jumpPower;
 
     private Animator anim;
     private Vector3 velocity;
@@ -65,8 +66,8 @@ public class PlayerMovement : MonoBehaviour {
 
         if ((Input.GetAxis("Jump") == 1.0f) && jumpTimer > jumpDelay) 
         {
-            Vector3 JumpForce = new Vector3(0, 200, 0);
-            rb.AddForce(JumpForce);
+            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
+            rb.AddForce(jumpForce);
             jumpTimer = 0.0f;
 
             if (anim) { anim.SetTrigger("JumpTrigger"); }
