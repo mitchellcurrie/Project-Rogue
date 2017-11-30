@@ -8,12 +8,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed;
+    public float jumpDelay;
 
     private Animator anim;
     private Vector3 velocity;
     private Vector3 moveDirection;
     private Camera cam;
 
+    private Rigidbody rb;
+    private float jumpTimer;
 
     // Use this for initialization
     void Start()
@@ -21,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
         cam = Camera.main;
         anim = GetComponent<Animator>();
         Cursor.visible = false;
+        rb = GetComponent<Rigidbody>();
+        jumpTimer = 0.0f;
     }
 	
 	// Update is called once per frame
@@ -30,7 +35,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
     void FixedUpdate()
-    {   
+    {
+        // Movement
         Vector3 forward = cam.transform.TransformDirection(Vector3.forward);
         forward.y = 0;
         forward = forward.normalized;
@@ -53,44 +59,20 @@ public class PlayerMovement : MonoBehaviour {
             if (anim) { anim.SetBool("IsRunning", false); }
         }
 
-        ////////   Basic  //////// 
+        // Jumping
 
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
+        jumpTimer += Time.deltaTime;
 
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        if ((Input.GetAxis("Jump") == 1.0f) && jumpTimer > jumpDelay) 
+        {
+            Vector3 JumpForce = new Vector3(0, 200, 0);
+            rb.AddForce(JumpForce);
+            jumpTimer = 0.0f;
 
-        //transform.position += (movement * speed * 0.01f);
+            if (anim) { anim.SetTrigger("JumpTrigger"); }
 
-        ////////   End Basic  //////// 
-
-
-        ////////   Moving where camera is looking   //////// 
-
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
-
-        //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        ////transform.position += (movement * speed);
-
-        //Vector3 CameraToPlayer = transform.position - cam.transform.position;
-        //CameraToPlayer.y = 0.0f;
-        //Vector3 CameraToPlayerNorm = Vector3.Normalize(CameraToPlayer);
-        //Debug.Log(CameraToPlayerNorm);
-
-        //transform.position += (CameraToPlayerNorm * 0.01f) * moveVertical * speed;
-
-        //if (moveVertical > 0)
-        //{
-        //    transform.forward = CameraToPlayer;
-        //}
-        //else if (moveVertical < 0)
-        //{
-        //    transform.forward = -CameraToPlayer;
-        //}
-
-        ////////   End Moving where camera is looking   //////// 
-
+        }      
     }
+
+
 }

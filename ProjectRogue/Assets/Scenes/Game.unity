@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4128651402901672, guid: 08861a10035b18b49beb0e09fd1bbbb8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.003
       objectReference: {fileID: 0}
     - target: {fileID: 4128651402901672, guid: 08861a10035b18b49beb0e09fd1bbbb8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -145,6 +145,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4128651402901672, guid: 08861a10035b18b49beb0e09fd1bbbb8, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136179438127145438, guid: 08861a10035b18b49beb0e09fd1bbbb8,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 136179438127145438, guid: 08861a10035b18b49beb0e09fd1bbbb8,
+        type: 2}
+      propertyPath: m_Height
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 114529724739713222, guid: 08861a10035b18b49beb0e09fd1bbbb8,
+        type: 2}
+      propertyPath: jumpDelay
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -252,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1117182928}
-  distance: 4
+  distance: 5
   sensitivityX: 3
   sensitivityY: 2
 --- !u!1001 &32263253
