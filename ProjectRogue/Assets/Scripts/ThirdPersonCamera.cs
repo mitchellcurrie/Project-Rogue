@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
     public Transform target;
     public float distance = 10.0f;
-    public float sensitivityX = 5.0f;
-    public float sensitivityY = 2.0f;
+    public float mouseSensitivityX = 5.0f;
+    public float mouseSensitivityY = 2.0f;
+    public float controllerSensitivityX = 5.0f;
+    public float controllerSensitivityY = 2.0f;
 
     private Transform camTransform;
 
@@ -24,8 +27,8 @@ public class ThirdPersonCamera : MonoBehaviour {
 
     private void Update()
     {
-        currentX += Input.GetAxis("Mouse X") * sensitivityX;
-        currentY -= Input.GetAxis("Mouse Y") * sensitivityY;
+        currentX += Input.GetAxis("Mouse X") * mouseSensitivityX + XCI.GetAxisRaw(XboxAxis.RightStickX) * controllerSensitivityX;
+        currentY -= Input.GetAxis("Mouse Y") * mouseSensitivityY + XCI.GetAxisRaw(XboxAxis.RightStickY) * controllerSensitivityY;
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 

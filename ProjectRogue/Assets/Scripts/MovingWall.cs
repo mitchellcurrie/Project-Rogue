@@ -9,7 +9,8 @@ public class MovingWall : MonoBehaviour {
     public bool East;
     public bool West;
 
-    private static float movementSpeed = 0.01f;
+    private static float moveInSpeed = 0.01f;
+    private static float moveOutSpeed = 0.02f;
 
     public bool IsMovingIn;
     public bool IsMovingOut;
@@ -68,13 +69,13 @@ public class MovingWall : MonoBehaviour {
 
     public void MoveIn()
     {
-        transform.position += movementDirection * movementSpeed;
+        transform.position += movementDirection * moveInSpeed;
         OutOfPosition = true;
     }
 
     public void MoveOut()
     {
-        transform.position -= movementDirection * movementSpeed;
+        transform.position -= movementDirection * moveOutSpeed;
 
         float XChange = transform.position.x - originalPos.x;
         float ZChange = transform.position.z - originalPos.z;

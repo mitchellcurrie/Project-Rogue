@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
-using DG.Tweening;
 using UnityEngine;
-
+using DG.Tweening;
+using XboxCtrlrInput;
 
 public class PlayerMovement : MonoBehaviour {
 
     public float speed;
     public float jumpDelay;
-    public float jumpPower;
+    public float jumpUpPower;
+    public float jumpForwardPower;
 
     private Animator anim;
     private Vector3 velocity;
@@ -45,6 +46,12 @@ public class PlayerMovement : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
+        if (h == 0 && v == 0)
+        {
+            h = XCI.GetAxisRaw(XboxAxis.LeftStickX);
+            v = XCI.GetAxisRaw(XboxAxis.LeftStickY);
+        }
+          
         moveDirection = (h * right + v * forward);
         moveDirection *= speed;
 
@@ -64,14 +71,13 @@ public class PlayerMovement : MonoBehaviour {
 
         jumpTimer += Time.deltaTime;
 
-        if ((Input.GetAxis("Jump") == 1.0f) && jumpTimer > jumpDelay) 
+        if (((Input.GetAxis("Jump") == 1.0f) || XCI.GetButtonDown(XboxButton.A)) && jumpTimer > jumpDelay) 
         {
-            Vector3 jumpForce = new Vector3(0, jumpPower, 0);
-            rb.AddForce(jumpForce);
+            Vector3 jumpForce = new Vector3(0, jumpUpPower, 0);
+            rb.AddForce(jumpForce + Vector3.Normalize(transform.forward) * jumpForwardPower);
             jumpTimer = 0.0f;
 
             if (anim) { anim.SetTrigger("JumpTrigger"); }
-
         }      
     }
 
