@@ -13,4 +13,12 @@ public class PlayerInteraction : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	private void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.GetComponent<Item>())
+		{
+			Destroy (col.gameObject);
+		}
+	}
 }
