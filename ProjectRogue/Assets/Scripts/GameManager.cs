@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-	public Text gameTimerText;
+	public TextMeshProUGUI gameTimerText;
 	private float gameTimer;
 
 	private bool gameStarted;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour {
 		{
 			gameTimer += Time.deltaTime;
 			int intTimer = (int)gameTimer;
-			gameTimerText.text = "Timer: " + intTimer.ToString();
+			gameTimerText.SetText("Timer: " + intTimer.ToString());
 		}
 	}
 }
