@@ -27,8 +27,8 @@ public class ThirdPersonCamera : MonoBehaviour {
 
     private void Update()
     {
-        currentX += Input.GetAxis("Mouse X") * mouseSensitivityX + XCI.GetAxisRaw(XboxAxis.RightStickX) * controllerSensitivityX;
-        currentY -= Input.GetAxis("Mouse Y") * mouseSensitivityY + XCI.GetAxisRaw(XboxAxis.RightStickY) * controllerSensitivityY;
+		currentX += Input.GetAxis ("Mouse X") * mouseSensitivityX;// + XCI.GetAxisRaw(XboxAxis.RightStickX) * controllerSensitivityX;
+		currentY -= Input.GetAxis("Mouse Y") * mouseSensitivityY;// + XCI.GetAxisRaw(XboxAxis.RightStickY) * controllerSensitivityY;
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 

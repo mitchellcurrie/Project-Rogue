@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour {
 
         if (h == 0 && v == 0)
         {
-            h = XCI.GetAxisRaw(XboxAxis.LeftStickX);
-            v = XCI.GetAxisRaw(XboxAxis.LeftStickY);
+            //h = XCI.GetAxisRaw(XboxAxis.LeftStickX);
+            //v = XCI.GetAxisRaw(XboxAxis.LeftStickY);
         }
           
         moveDirection = (h * right + v * forward);
@@ -71,7 +71,8 @@ public class PlayerMovement : MonoBehaviour {
 
         jumpTimer += Time.deltaTime;
 
-        if (((Input.GetAxis("Jump") == 1.0f) || XCI.GetButtonDown(XboxButton.A)) && jumpTimer > jumpDelay) 
+        //if (((Input.GetAxis("Jump") == 1.0f) || XCI.GetButtonDown(XboxButton.A)) && jumpTimer > jumpDelay) 
+		if (((Input.GetAxis("Jump") == 1.0f)) && jumpTimer > jumpDelay)
         {
             Vector3 jumpForce = new Vector3(0, jumpUpPower, 0);
             rb.AddForce(jumpForce + Vector3.Normalize(transform.forward) * jumpForwardPower);
