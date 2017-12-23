@@ -112,11 +112,16 @@ public class MovingWall : MonoBehaviour {
                 IsMovingIn = false;
             }
         }
+		else if (col.gameObject.GetComponent<Bomb>()) 
+		{
+			Bomb bombCol = col.gameObject.GetComponent<Bomb> ();
+			bombCol.BlowUp ();
+			Destroy (col.gameObject);
+		}
     }
 
     private void OnCollisionStay(Collision col)
     {
         //IsMoving = false;
     }
-
 }

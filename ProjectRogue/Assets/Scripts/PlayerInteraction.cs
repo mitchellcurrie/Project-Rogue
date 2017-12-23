@@ -21,4 +21,12 @@ public class PlayerInteraction : MonoBehaviour {
 			Destroy (col.gameObject);
 		}
 	}
+
+	private void OnCollisionEnter(Collision col)
+	{
+		if (col.gameObject.GetComponent<Bomb>())
+		{
+			Destroy (col.gameObject);
+		}
+	}
 }
