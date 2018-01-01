@@ -30,15 +30,21 @@ public class Floor : MonoBehaviour {
 		hasDropped = b;
 	}
 
-	public void MoveDown(Bomb b)
+	public void MoveDown(GameObject b)
 	{
-		transform.DOMove (new Vector3 (transform.position.x, -20.0f, transform.position.z), 1.0f).OnComplete(()=>Destroy (b.gameObject));
-		//hasDropped = true;
-	}
+        if (!hasDropped)
+        {
+            transform.DOMove(new Vector3(transform.position.x, -20.0f, transform.position.z), 1.0f).OnComplete(() => Destroy(b.gameObject));
+            //hasDropped = true;
+        }
+    }
 
 	public void MoveDown()
 	{
-		transform.DOMove (new Vector3 (transform.position.x, -20.0f, transform.position.z), 1.0f);
-		//hasDropped = true;
+        if (!hasDropped)
+        {
+            transform.DOMove(new Vector3(transform.position.x, -20.0f, transform.position.z), 1.0f);
+            //hasDropped = true;
+        }
 	}
 }

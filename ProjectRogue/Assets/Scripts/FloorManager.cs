@@ -38,4 +38,11 @@ public class FloorManager : MonoBehaviour {
 			Instantiate (Bomb, spawnLocation, Quaternion.identity); 
 		}
 	}  
+
+    public Vector3 GetRandomFloorPosition()
+    {
+        int random = Random.Range(0, floorArray.Length);
+        return floorArray[random].transform.position;
+    }
+
 }

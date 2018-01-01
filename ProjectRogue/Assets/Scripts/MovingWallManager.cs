@@ -13,6 +13,7 @@ public class MovingWallManager : MonoBehaviour {
     void Start ()
     {
         wallArray = GetComponentsInChildren<MovingWall>();
+        wallTimer = 0.0f;
     }
 	
 	// Update is called once per frame

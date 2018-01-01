@@ -39,17 +39,23 @@ public class Bomb : MonoBehaviour {
 			Debug.Log ("Floor piece set");
 		}
 
-		if (col.gameObject.GetComponent<Bomb> ()) 
+		else if (col.gameObject.GetComponent<Bomb> () || col.gameObject.GetComponent<Item>()) 
 		{
 			if (floorPiece) 
 			{
-				floorPiece.MoveDown(this);
+				floorPiece.MoveDown(this.gameObject);
 				floorPiece.SetFloorHasDropped (true);
 				Destroy (col.gameObject);
 				this.gameObject.SetActive (false);
 			}
 
+           if (col.gameObject.GetComponent<Item>())
+            {
+                Debug.Log("Bomb collision with Orb");
+            }
 
-		}
+
+
+        }
 	}
 }

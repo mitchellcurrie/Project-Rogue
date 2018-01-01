@@ -118,6 +118,10 @@ public class MovingWall : MonoBehaviour {
 			bombCol.BlowUp ();
 			Destroy (col.gameObject);
 		}
+        else if (col.gameObject.GetComponent<Item>())
+        {
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnCollisionStay(Collision col)
