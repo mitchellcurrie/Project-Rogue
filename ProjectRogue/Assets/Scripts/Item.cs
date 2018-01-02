@@ -7,6 +7,8 @@ public class Item : MonoBehaviour {
 
     [Tooltip("Between 0 and 10.")]
     public float collectionValue;
+    public GameObject DestroyExplosionEffect;
+    public GameObject CollectEffect;
     private Image collectionBar;
     private Floor floorPiece;
 
@@ -69,4 +71,15 @@ public class Item : MonoBehaviour {
             Debug.Log("Orb collision with Orb");
         }
     }
+
+    public void Destroy()
+    {
+        if (DestroyExplosionEffect)
+        {
+            Instantiate(DestroyExplosionEffect, transform.position, transform.rotation);
+        }
+
+        Destroy(gameObject);
+    }
+  
 }

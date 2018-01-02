@@ -10849,7 +10849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bomb: {fileID: 1705609302753832, guid: f7bb9ae2d2f34f940866978e9bf08627, type: 2}
-  bombSpawnTime: 0.2
+  bombSpawnTime: 1
 --- !u!1001 &1637598305
 Prefab:
   m_ObjectHideFlags: 0

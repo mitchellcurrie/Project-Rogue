@@ -122,3 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectionValue: 2
+  DestroyExplosionEffect: {fileID: 1000011128802252, guid: 3a86fbc68b0620e4db883fea0bfbfb34,
+    type: 2}
+  CollectEffect: {fileID: 0}

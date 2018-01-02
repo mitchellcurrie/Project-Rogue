@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class Bomb : MonoBehaviour {
 
+    public GameObject bombExplosionEffect;
+    public float explosionRadius;
+    public float explosionForce;
     private float timer = 0.0f;
     private float timeToShake = 3.0f;
     private float timeToExplode = 5.0f;
@@ -12,10 +15,16 @@ public class Bomb : MonoBehaviour {
     private Floor floorPiece;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
 
     }
+ 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    } 
 	
 	// Update is called once per frame
 	void FixedUpdate ()
@@ -41,6 +50,13 @@ public class Bomb : MonoBehaviour {
 	public void BlowUp()
     { 
         Debug.Log ("Blow up called");
+
+        if (bombExplosionEffect)
+        {
+            Instantiate(bombExplosionEffect, transform.position, transform.rotation);
+        }
+
+        MoveOtherObjects();
 
        // this.gameObject.SetActive(false);
         Destroy(this.gameObject);
@@ -84,5 +100,24 @@ public class Bomb : MonoBehaviour {
     {   //                        Duration                     Strength  Vibrato  Randomness  Fade Out
         transform.DOShakeRotation(timeToExplode - timeToShake, 100,      2,       20,         false);        
         transform.DORotate(new Vector3(0.0f, Random.Range(-360.0f, 360.0f), 0.0f), timeToExplode - timeToShake, RotateMode.Fast);
+    }
+
+    private void MoveOtherObjects()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+        foreach (Collider nearbyObject in colliders)
+        {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb && !(nearbyObject.GetComponent<MovingWall>()))
+            {
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+            }
+
+            //if (nearbyObject.GetComponent<Bomb>())
+            //{
+            //    nearbyObject.GetComponent<Bomb>().BlowUp();
+            //}
+        }
     }
 }
