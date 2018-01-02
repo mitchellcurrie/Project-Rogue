@@ -8,13 +8,12 @@ public class FloorManager : MonoBehaviour {
 	private Floor[] floorArray;
 	private float bombTimer;
 	public float bombSpawnTime;
-	private float dropHeight;
+    private float dropHeight = 10.0f;
 
 	// Use this for initialization
 	void Start ()
 	{
 		floorArray = GetComponentsInChildren<Floor>();
-		dropHeight = 20.0f;
 	}
 	
 	void FixedUpdate ()

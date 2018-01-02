@@ -75,6 +75,12 @@ public class PlayerMovement : MonoBehaviour {
 		if (((Input.GetAxis("Jump") == 1.0f)) && jumpTimer > jumpDelay)
         {
             Vector3 jumpForce = new Vector3(0, jumpUpPower, 0);
+
+            if (transform.position.y < -3.0f)
+            {
+                jumpForce *= 3.0f;
+            }
+
             rb.AddForce(jumpForce + Vector3.Normalize(transform.forward) * jumpForwardPower);
             jumpTimer = 0.0f;
 

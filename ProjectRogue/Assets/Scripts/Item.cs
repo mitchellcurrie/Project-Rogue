@@ -44,6 +44,12 @@ public class Item : MonoBehaviour {
         {
             if (floorPiece)
             {
+                col.gameObject.GetComponent<Bomb>().BlowUp();
+            }
+
+
+            if (floorPiece)
+            {
                 floorPiece.MoveDown(this.gameObject);
                 floorPiece.SetFloorHasDropped(true);
                 Destroy(col.gameObject);

@@ -11,9 +11,10 @@ public class ItemManager : MonoBehaviour {
     private FloorManager FManager;
     private float orbTimer;
     private float collectionBarReduction;
+    private float dropHeight = 10.0f;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		collectionBarReduction = 2000.0f;
         FManager = FindObjectOfType<FloorManager>();
@@ -41,7 +42,7 @@ public class ItemManager : MonoBehaviour {
     public void SpawnOrb()
     {
         int randomOrb = Random.Range(0, Orbs.Length);
-        Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, 20.0f, 0);
+        Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
         Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
     }
 }

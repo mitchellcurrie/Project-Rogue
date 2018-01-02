@@ -3986,6 +3986,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c29668e636794836991188639116444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &561763453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 561763454}
+  - component: {fileID: 561763456}
+  - component: {fileID: 561763455}
+  m_Layer: 0
+  m_Name: Shredder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561763454
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561763453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 843070683}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561763455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561763453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c6b1a9d17066342983876954e71055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &561763456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561763453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 8, z: 40}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &567085385
 Prefab:
   m_ObjectHideFlags: 0
@@ -5872,6 +5925,7 @@ Transform:
   m_Children:
   - {fileID: 1488664207}
   - {fileID: 1631791066}
+  - {fileID: 561763454}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10794,8 +10848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55acc7c0ba0a246858b494377de271f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bomb: {fileID: 1705609302753832, guid: eacfb598698af46ebbe978171b184616, type: 2}
-  bombSpawnTime: 1
+  Bomb: {fileID: 1705609302753832, guid: f7bb9ae2d2f34f940866978e9bf08627, type: 2}
+  bombSpawnTime: 0.2
 --- !u!1001 &1637598305
 Prefab:
   m_ObjectHideFlags: 0
