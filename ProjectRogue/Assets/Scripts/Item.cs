@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour {
 
+    [Tooltip("Between 0 and 10.")]
     public float collectionValue;
     private Image collectionBar;
     private Floor floorPiece;
@@ -32,7 +33,11 @@ public class Item : MonoBehaviour {
         else if (col.gameObject.GetComponent<PlayerInteraction>())
         {
             Destroy(this.gameObject);
-            collectionBar.fillAmount += 1.0f / collectionValue;
+            collectionBar.fillAmount += collectionValue / 10;
+            if (collectionValue == 0)
+            {
+                Debug.LogError("Collection value set to 0!");
+            }
         }
 
         else if (col.gameObject.GetComponent<Bomb>())

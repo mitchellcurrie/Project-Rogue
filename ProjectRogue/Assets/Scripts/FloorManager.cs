@@ -35,7 +35,7 @@ public class FloorManager : MonoBehaviour {
 		if (!(floorArray[random].HasFloorDropped()))
 		{
 			Vector3 spawnLocation = floorArray [random].transform.position + new Vector3 (0, dropHeight, 0);
-			Instantiate (Bomb, spawnLocation, Quaternion.identity); 
+			Instantiate (Bomb, spawnLocation, Quaternion.Euler(0.0f, Random.Range(0, 360), 0.0f)); 
 		}
 	}  
 

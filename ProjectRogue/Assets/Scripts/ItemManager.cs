@@ -42,6 +42,6 @@ public class ItemManager : MonoBehaviour {
     {
         int randomOrb = Random.Range(0, Orbs.Length);
         Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, 20.0f, 0);
-        Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.identity);
+        Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
     }
 }
