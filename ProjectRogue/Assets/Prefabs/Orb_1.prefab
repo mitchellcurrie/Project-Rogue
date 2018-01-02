@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4257656220512668}
   - component: {fileID: 33974870143142120}
   - component: {fileID: 23073069109988676}
-  - component: {fileID: 64332516882317358}
   - component: {fileID: 114063225177483424}
   - component: {fileID: 54627132876841524}
+  - component: {fileID: 65228691765585782}
   m_Layer: 0
   m_Name: Orb_1
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421828754507968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,20 +98,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!64 &64332516882317358
-MeshCollider:
+--- !u!65 &65228691765585782
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421828754507968}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b1148736c180a41459dee7841974f965, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300120, guid: 7374575f12d49ba459e91009f7a9ec62, type: 3}
+  m_Size: {x: 0.17, y: 0.15, z: 0.17}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114063225177483424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebeb7526d83fc45bdb027e22e387e0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectionValue: 0
+  collectionValue: 2
