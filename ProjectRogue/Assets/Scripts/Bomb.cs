@@ -98,7 +98,7 @@ public class Bomb : MonoBehaviour {
 
     private void Shake()
     {   //                        Duration                     Strength  Vibrato  Randomness  Fade Out
-        transform.DOShakeRotation(timeToExplode - timeToShake, 100,      2,       20,         false);        
+        transform.DOShakeRotation(timeToExplode - timeToShake, 100,      3,       40,         false);        
         transform.DORotate(new Vector3(0.0f, Random.Range(-360.0f, 360.0f), 0.0f), timeToExplode - timeToShake, RotateMode.Fast);
     }
 
