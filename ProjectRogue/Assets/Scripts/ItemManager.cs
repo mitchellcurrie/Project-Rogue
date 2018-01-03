@@ -7,9 +7,15 @@ public class ItemManager : MonoBehaviour {
 
 	public Image collectionBar;
     public GameObject[] Orbs;
-    public float orbSpawnTime;
-    private FloorManager FManager;
+    public GameObject Bomb;
+
+    public float orbSpawnTime; 
     private float orbTimer;
+
+    public float bombSpawnTime;
+    private float bombTimer;
+    
+    private FloorManager FManager;
     private float collectionBarReduction;
     private float dropHeight = 10.0f;
 
@@ -25,12 +31,22 @@ public class ItemManager : MonoBehaviour {
 	{
 		collectionBar.fillAmount -= 1.0f / collectionBarReduction;
 
+        // Orb Timing
         orbTimer += Time.deltaTime;
 
         if (orbTimer > orbSpawnTime)
         {
             SpawnOrb();
             orbTimer = 0.0f;
+        }
+
+        // Bomb timing
+        bombTimer += Time.deltaTime;
+
+        if (bombTimer > bombSpawnTime)
+        {
+            SpawnBomb();
+            bombTimer = 0.0f;
         }
     }
 
@@ -44,5 +60,11 @@ public class ItemManager : MonoBehaviour {
         int randomOrb = Random.Range(0, Orbs.Length);
         Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
         Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+    }
+
+    void SpawnBomb()
+    {
+        Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
+        Instantiate(Bomb, spawnLocation, Quaternion.Euler(0.0f, Random.Range(0, 360), 0.0f));
     }
 }

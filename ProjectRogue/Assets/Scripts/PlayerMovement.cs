@@ -76,9 +76,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             Vector3 jumpForce = new Vector3(0, jumpUpPower, 0);
 
-            if (transform.position.y < -3.0f)
+            if (transform.position.y < -0.7f)
             {
-                jumpForce *= 3.0f;
+                jumpForce *= 2.0f;
             }
 
             rb.AddForce(jumpForce + Vector3.Normalize(transform.forward) * jumpForwardPower);

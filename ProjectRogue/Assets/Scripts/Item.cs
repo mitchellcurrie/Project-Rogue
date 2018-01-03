@@ -29,7 +29,7 @@ public class Item : MonoBehaviour {
         if (col.gameObject.GetComponent<Floor>())
         {
             floorPiece = col.gameObject.GetComponent<Floor>();
-            Debug.Log("Floor piece set");
+            //Debug.Log("Floor piece set");
         }
 
         else if (col.gameObject.GetComponent<PlayerInteraction>())
@@ -38,7 +38,7 @@ public class Item : MonoBehaviour {
             collectionBar.fillAmount += collectionValue / 10;
             if (collectionValue == 0)
             {
-                Debug.LogError("Collection value set to 0!");
+                //Debug.LogError("Collection value set to 0!");
             }
         }
 
@@ -60,7 +60,7 @@ public class Item : MonoBehaviour {
 
             if (col.gameObject.GetComponent<Item>())
             {
-                Debug.Log("Bomb collision with Orb");
+                //Debug.Log("Bomb collision with Orb");
             }
         }
 
@@ -68,7 +68,7 @@ public class Item : MonoBehaviour {
         {
             Destroy(col.gameObject);
             this.gameObject.SetActive(false);
-            Debug.Log("Orb collision with Orb");
+           // Debug.Log("Orb collision with Orb");
         }
     }
 

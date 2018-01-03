@@ -16,17 +16,34 @@ public class PlayerInteraction : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.gameObject.GetComponent<Item>())
-		{
-			Destroy (col.gameObject);
-		}
+		
 	}
 
 	private void OnCollisionEnter(Collision col)
 	{
 		if (col.gameObject.GetComponent<Bomb>())
 		{
-			Destroy (col.gameObject);
-		}
-	}
+            Destroy(col.gameObject);
+        }
+    }
+
+    //Player moving when on a moving wall / platform
+    private void OnCollisionStay(Collision col)
+    {
+        if (col.gameObject.GetComponent<MovingWall>())
+        {
+            MovingWall wall = col.gameObject.GetComponent<MovingWall>();
+            Vector3 WallMovement = wall.GetDirectionXSpeed();
+
+            if (wall.IsMovingOut)
+            {
+                WallMovement *= -1;
+            }
+
+            if (wall.IsWallOutOfPosition())
+            {
+                transform.position += WallMovement;
+            }         
+        }
+    }
 }

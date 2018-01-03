@@ -5,23 +5,13 @@ using DG.Tweening;
 
 public class Floor : MonoBehaviour {
 
-	private bool hasDropped;
-
-	// Use this for initialization
-	void Start () 
-	{
-		hasDropped = false;
-	}
+    private bool hasDropped = false;
+    private bool covered = false;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public bool HasFloorDropped()
 	{
-		Debug.Log ("Check if floor has dropped");
-		Debug.Log (hasDropped);
+		//Debug.Log ("Check if floor has dropped");
+		//Debug.Log (hasDropped);
 		return hasDropped;
 	}
 
@@ -29,6 +19,11 @@ public class Floor : MonoBehaviour {
 	{
 		hasDropped = b;
 	}
+
+    public bool IsCovered()
+    {
+        return covered;
+    }
 
 	public void MoveDown(GameObject b)
 	{
@@ -47,4 +42,28 @@ public class Floor : MonoBehaviour {
             //hasDropped = true;
         }
 	}
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponent<MovingWall>())
+        {
+            if (col.gameObject.GetComponent<MovingWall>().IsWallOutOfPosition())
+            {
+                covered = true;
+                //Debug.Log(this.name + "is covered");
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.GetComponent<MovingWall>())
+        {
+        //    if (col.gameObject.GetComponent<MovingWall>().IsWallOutOfPosition())
+        //    {
+                covered = false;
+               // Debug.Log(this.name + "is NOT covered");
+         //   }        
+        }
+    }
 }

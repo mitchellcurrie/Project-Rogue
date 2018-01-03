@@ -9,8 +9,7 @@ public class MovingWall : MonoBehaviour {
     public bool East;
     public bool West;
 
-    private static float moveInSpeed = 0.01f;
-    private static float moveOutSpeed = 0.02f;
+    private static float moveSpeed = 0.01f;
 
     public bool IsMovingIn;
     public bool IsMovingOut;
@@ -69,13 +68,13 @@ public class MovingWall : MonoBehaviour {
 
     public void MoveIn()
     {
-        transform.position += movementDirection * moveInSpeed;
+        transform.position += movementDirection * moveSpeed;
         OutOfPosition = true;
     }
 
     public void MoveOut()
     {
-        transform.position -= movementDirection * moveOutSpeed;
+        transform.position -= movementDirection * moveSpeed;
 
         float XChange = transform.position.x - originalPos.x;
         float ZChange = transform.position.z - originalPos.z;
@@ -83,7 +82,7 @@ public class MovingWall : MonoBehaviour {
         if (Mathf.Abs(XChange) < 0.02f && Mathf.Abs(ZChange) < 0.02f)
         {
             //Debug.Log("Current = (" + transform.position.x + "," + transform.position.z + ") Original = (" + originalPos.x + ","+ originalPos.z + ")");
-            Debug.Log("X Change = " + XChange + "      Z Change = " + ZChange);
+            //Debug.Log("X Change = " + XChange + "      Z Change = " + ZChange);
 
             transform.position = originalPos;
             OutOfPosition = false;
@@ -102,7 +101,7 @@ public class MovingWall : MonoBehaviour {
         {
             IsMovingIn = false;
             IsMovingOut = false;
-            Debug.Log("Collision with wall");
+            //Debug.Log("Collision with wall");
         }
         else if (col.gameObject.GetComponent<PlayerMovement>())
         {
@@ -127,5 +126,10 @@ public class MovingWall : MonoBehaviour {
     private void OnCollisionStay(Collision col)
     {
         //IsMoving = false;
+    }
+
+    public Vector3 GetDirectionXSpeed()
+    {
+        return movementDirection * moveSpeed;
     }
 }

@@ -49,7 +49,7 @@ public class Bomb : MonoBehaviour {
 
 	public void BlowUp()
     { 
-        Debug.Log ("Blow up called");
+        //Debug.Log ("Blow up called");
 
         if (bombExplosionEffect)
         {
@@ -65,10 +65,10 @@ public class Bomb : MonoBehaviour {
 		{
 			floorPiece.MoveDown ();
 			floorPiece.SetFloorHasDropped (true);
-			Debug.Log ("Floor moved down");
+			//Debug.Log ("Floor moved down");
 		}
 
-		Debug.Log ("Floor not set so not destroyed");
+		//Debug.Log ("Floor not set so not destroyed");
 
        // Destroy(this);
 	}
@@ -78,7 +78,7 @@ public class Bomb : MonoBehaviour {
 		if (col.gameObject.GetComponent<Floor> ()) 
 		{
 			floorPiece = col.gameObject.GetComponent<Floor> ();
-			Debug.Log ("Floor piece set");
+			//Debug.Log ("Floor piece set");
         }
 
 		else if (col.gameObject.GetComponent<Bomb> () || col.gameObject.GetComponent<Item>()) 
@@ -91,7 +91,7 @@ public class Bomb : MonoBehaviour {
 
            if (col.gameObject.GetComponent<Item>())
             {
-                Debug.Log("Bomb collision with Orb");
+                //Debug.Log("Bomb collision with Orb");
             }
         }
 	}
