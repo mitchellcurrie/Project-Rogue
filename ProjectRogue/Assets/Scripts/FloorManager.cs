@@ -12,6 +12,12 @@ public class FloorManager : MonoBehaviour {
 		floorArray = GetComponentsInChildren<Floor>();
 	}
 	
+    public bool IsAvailableFloorPosition()
+    {
+        return true;
+    }
+
+
     public Vector3 GetRandomFloorPosition()
     {
         bool foundPosition = false;
@@ -21,7 +27,7 @@ public class FloorManager : MonoBehaviour {
         {
             random = Random.Range(0, floorArray.Length);
 
-            if (!(floorArray[random].HasFloorDropped()) && !(floorArray[random].IsCovered()))
+            if (!(floorArray[random].HasFloorDropped()))// && !(floorArray[random].IsCovered()))
             {
                 foundPosition = true;
             }

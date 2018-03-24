@@ -113,13 +113,13 @@ public class MovingWall : MonoBehaviour {
         }
         else if (col.gameObject.GetComponent<Bomb>())
         {
-            Bomb bombCol = col.gameObject.GetComponent<Bomb>();
-            bombCol.BlowUp();
-            Destroy(col.gameObject);
+            //Bomb bombCol = col.gameObject.GetComponent<Bomb>();
+            //bombCol.BlowUp();
+            //Destroy(col.gameObject);
         }
         else if (col.gameObject.GetComponent<Item>())
         {
-            col.gameObject.GetComponent<Item>().Destroy();
+            //col.gameObject.GetComponent<Item>().Destroy();
         }
     }
 

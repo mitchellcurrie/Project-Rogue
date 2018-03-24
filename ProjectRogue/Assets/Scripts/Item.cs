@@ -72,6 +72,20 @@ public class Item : MonoBehaviour {
         }
     }
 
+    private void OnCollisionStay(Collision col)
+    {               
+        if (col.gameObject.GetComponent<MovingWall>())
+        {
+            MovingWall wall = col.gameObject.GetComponent<MovingWall>();
+            Vector3 WallMovement = wall.GetDirectionXSpeed();
+
+            if (wall.IsWallOutOfPosition())
+            {
+                transform.position += WallMovement;
+            }
+        }
+    }
+
     public void Destroy()
     {
         if (DestroyExplosionEffect)

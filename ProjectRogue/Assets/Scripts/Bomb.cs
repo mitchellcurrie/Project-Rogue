@@ -94,7 +94,21 @@ public class Bomb : MonoBehaviour {
                 //Debug.Log("Bomb collision with Orb");
             }
         }
-	}
+    }
+
+    private void OnCollisionStay(Collision col)
+    {
+        if (col.gameObject.GetComponent<MovingWall>())
+        {
+            MovingWall wall = col.gameObject.GetComponent<MovingWall>();
+            Vector3 WallMovement = wall.GetDirectionXSpeed();
+
+            if (wall.IsWallOutOfPosition())
+            {
+                transform.position += WallMovement;
+            }
+        }
+    }
 
     private void Shake()
     {   //                        Duration                     Strength  Vibrato  Randomness  Fade Out
