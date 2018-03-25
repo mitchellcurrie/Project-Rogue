@@ -5497,6 +5497,7 @@ MonoBehaviour:
   Bomb: {fileID: 1705609302753832, guid: f7bb9ae2d2f34f940866978e9bf08627, type: 2}
   orbSpawnTime: 1
   bombSpawnTime: 1
+  collectionBarReduction: 1000
 --- !u!1001 &681360852
 Prefab:
   m_ObjectHideFlags: 0
@@ -10272,7 +10273,7 @@ GameObject:
   - component: {fileID: 1487663163}
   - component: {fileID: 1487663162}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Screen Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,20 +16,27 @@ public class ItemManager : MonoBehaviour {
     private float bombTimer;
     
     private FloorManager FManager;
-    private float collectionBarReduction;
+    private GameManager GManager;
+    public float collectionBarReduction;
     private float dropHeight = 10.0f;
 
     // Use this for initialization
     void Start () 
 	{
-		collectionBarReduction = 2000.0f;
         FManager = FindObjectOfType<FloorManager>();
+        GManager = FindObjectOfType<GameManager>();
+
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
 		collectionBar.fillAmount -= 1.0f / collectionBarReduction;
+
+        if (collectionBar.fillAmount == 0.0f)
+        {
+            GManager.GameOver();
+        }
 
         // Orb Timing
         orbTimer += Time.deltaTime;
