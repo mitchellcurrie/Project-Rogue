@@ -5212,7 +5212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6539e87f33a842eda49bdff5860107b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimerText: {fileID: 667076770}
 --- !u!4 &654685395
 Transform:
   m_ObjectHideFlags: 0
@@ -5266,7 +5265,7 @@ GameObject:
   - component: {fileID: 667076772}
   - component: {fileID: 667076770}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: InGameTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5497,7 +5496,7 @@ MonoBehaviour:
   Bomb: {fileID: 1705609302753832, guid: f7bb9ae2d2f34f940866978e9bf08627, type: 2}
   orbSpawnTime: 1
   bombSpawnTime: 1
-  collectionBarReduction: 1000
+  collectionBarReduction: 50
 --- !u!1001 &681360852
 Prefab:
   m_ObjectHideFlags: 0
@@ -6022,6 +6021,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b127815fd0f2074eae3a0c6a4786d0b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &766909449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 766909451}
+  - component: {fileID: 766909450}
+  m_Layer: 0
+  m_Name: TextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &766909450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766909449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ffd87f8df1fcd4d87f65d0814abed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 667076770}
+--- !u!4 &766909451
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766909449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 464.78604, y: 381.18546, z: 94.12407}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776968273 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 2b127815fd0f2074eae3a0c6a4786d0b, type: 2}
