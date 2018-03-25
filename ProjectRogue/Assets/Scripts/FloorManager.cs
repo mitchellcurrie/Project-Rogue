@@ -14,9 +14,16 @@ public class FloorManager : MonoBehaviour {
 	
     public bool IsAvailableFloorPosition()
     {
-        return true;
-    }
+        for (int i = 0; i < floorArray.Length; i++)
+        {
+            if (!(floorArray[i].HasFloorDropped()))
+            {
+                return true;
+            }
+        }
 
+        return false;
+    }
 
     public Vector3 GetRandomFloorPosition()
     {

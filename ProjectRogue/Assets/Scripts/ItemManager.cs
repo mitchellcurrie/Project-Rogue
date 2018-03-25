@@ -57,14 +57,20 @@ public class ItemManager : MonoBehaviour {
 
     public void SpawnOrb()
     {
-        int randomOrb = Random.Range(0, Orbs.Length);
-        Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
-        Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+        if (FManager.IsAvailableFloorPosition())
+        {
+            int randomOrb = Random.Range(0, Orbs.Length);
+            Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
+            Instantiate(Orbs[randomOrb], spawnLocation, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+        }        
     }
 
     void SpawnBomb()
     {
-        Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
-        Instantiate(Bomb, spawnLocation, Quaternion.Euler(0.0f, Random.Range(0, 360), 0.0f));
+        if (FManager.IsAvailableFloorPosition())
+        {
+            Vector3 spawnLocation = FManager.GetRandomFloorPosition() + new Vector3(0, dropHeight, 0);
+            Instantiate(Bomb, spawnLocation, Quaternion.Euler(0.0f, Random.Range(0, 360), 0.0f));
+        }
     }
 }
