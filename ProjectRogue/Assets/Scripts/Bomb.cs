@@ -105,7 +105,15 @@ public class Bomb : MonoBehaviour {
 
             if (wall.IsWallOutOfPosition())
             {
-                transform.position += WallMovement;
+                if (wall.IsMovingIn)
+                {
+                    transform.position += WallMovement;
+                }
+
+                else if (wall.IsMovingOut)
+                {
+                    transform.position -= WallMovement;
+                }
             }
         }
     }
