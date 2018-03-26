@@ -7,7 +7,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-    public static GameManager GMinstance = null;
+    public GameManager GMinstance = null;
     private float gameTimer;
 	private bool gamePlaying;
     private enum GameState { MENU, GAME, GAMEOVER };
@@ -39,7 +39,11 @@ public class GameManager : MonoBehaviour {
 	{
 		if (CurrentState == GameState.GAME) 
 		{
-            Debug.Log("In Game Part");
+            if (!TM)
+            {
+                TM = FindObjectOfType<TextManager>();
+            }
+
             gameTimer += Time.deltaTime;
 			int intTimer = (int)gameTimer;
             TM.SetTimerText("Timer: " + intTimer.ToString());
@@ -47,17 +51,34 @@ public class GameManager : MonoBehaviour {
 
         else if (CurrentState == GameState.GAMEOVER)
         {
-            Debug.Log("In GameOver Part");
+            if (!TM)
+            {
+                TM = FindObjectOfType<TextManager>();
+            }
+
             int intTimer = (int)gameTimer;
-            TM.SetTimerText("You survived for " + intTimer.ToString() + " seconds!");          
+            TM.SetTimerText("You survived for " + intTimer.ToString() + " seconds!");
         }
     }
 
     public void GameOver()
     {        
-        Debug.Log("Game Over");
         CurrentState = GameState.GAMEOVER;
         SceneManager.LoadScene("GameOver");
-        TM = FindObjectOfType<TextManager>();
+        TM = null;
+        Cursor.visible = true;
+    }
+
+    public void ResetGame()
+    {
+        TM = null;
+        gameTimer = 0.0f;
+        CurrentState = GameState.GAME;
+        SceneManager.LoadScene("Game");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

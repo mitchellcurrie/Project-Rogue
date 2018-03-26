@@ -15,6 +15,11 @@ public class Shredder : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+
+        else if (col.gameObject.GetComponent<PlayerInteraction>())
+        {
+            //GameManager.GameOver();
+        }
     }
 
 }
