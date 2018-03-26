@@ -7,12 +7,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-    public GameManager GMinstance = null;
-    private float gameTimer;
-	private bool gamePlaying;
+    public static GameManager GMinstance = null;
+    private static float gameTimer;
+	private static bool gamePlaying;
     private enum GameState { MENU, GAME, GAMEOVER };
-    private GameState CurrentState;
-    private TextManager TM;
+    private static GameState CurrentState;
+    private static TextManager TM;
 
     void Awake ()
     {
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void GameOver()
+    public static void GameOver()
     {        
         CurrentState = GameState.GAMEOVER;
         SceneManager.LoadScene("GameOver");
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
         Cursor.visible = true;
     }
 
-    public void ResetGame()
+    public static void ResetGame()
     {
         TM = null;
         gameTimer = 0.0f;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Game");
     }
 
-    public void Quit()
+    public static void Quit()
     {
         Application.Quit();
     }
