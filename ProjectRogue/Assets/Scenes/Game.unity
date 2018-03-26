@@ -3601,7 +3601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 278, y: 168.9}
+  m_AnchoredPosition: {x: 379.97, y: 289}
   m_SizeDelta: {x: 168.9, y: 23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466234103
@@ -5287,7 +5287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.1, y: -163}
+  m_AnchoredPosition: {x: 411, y: -275}
   m_SizeDelta: {x: 106.84, y: 44.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667076770
@@ -5497,7 +5497,7 @@ MonoBehaviour:
   Bomb: {fileID: 1705609302753832, guid: f7bb9ae2d2f34f940866978e9bf08627, type: 2}
   orbSpawnTime: 1
   bombSpawnTime: 1
-  collectionBarReduction: 100
+  collectionBarReduction: 800
 --- !u!1001 &681360852
 Prefab:
   m_ObjectHideFlags: 0
@@ -10086,7 +10086,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 8, z: 8}
+  m_Size: {x: 8, y: 9, z: 8}
   m_Center: {x: 0, y: 4, z: 0}
 --- !u!114 &1467691721
 MonoBehaviour:

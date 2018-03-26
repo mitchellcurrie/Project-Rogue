@@ -18,7 +18,7 @@ public class Shredder : MonoBehaviour
 
         else if (col.gameObject.GetComponent<PlayerInteraction>())
         {
-            //GameManager.GameOver();
+            GameManager.GameOver();
         }
     }
 
