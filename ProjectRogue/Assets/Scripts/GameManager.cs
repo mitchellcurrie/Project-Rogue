@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 	private static bool gamePlaying;
     private enum GameState { MENU, GAME, GAMEOVER };
     private static GameState CurrentState;
+    public enum CauseOfDeath { LAVA, TIME };
+    private static CauseOfDeath CurrentCauseOfDeath;
     private static TextManager TM;
 
     void Awake ()
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour {
             gameTimer += Time.deltaTime;
 			int intTimer = (int)gameTimer;
             TM.SetTimerText("Timer: " + intTimer.ToString());
+
 		}
 
         else if (CurrentState == GameState.GAMEOVER)
@@ -57,7 +60,17 @@ public class GameManager : MonoBehaviour {
             }
 
             int intTimer = (int)gameTimer;
-            TM.SetTimerText("You survived for " + intTimer.ToString() + " seconds!");
+            TM.SetTimerText("You survived for " + intTimer.ToString() + " seconds");
+
+            if (CurrentCauseOfDeath == CauseOfDeath.LAVA)
+            {
+                TM.SetCODText("You fell into the lava!");
+            }
+            else // Ran out of time
+            {
+                TM.SetCODText("You ran out of time!");
+            }
+           
         }
     }
 
@@ -67,6 +80,16 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("GameOver");
         TM = null;
         Cursor.visible = true;
+    }
+
+    public static void SetCauseOfDeath(CauseOfDeath _CauseOfDeath)
+    {
+        CurrentCauseOfDeath = _CauseOfDeath;
+    }
+
+    public static CauseOfDeath GetCauseOfDeath()
+    {
+        return CurrentCauseOfDeath;
     }
 
     public static void ResetGame()

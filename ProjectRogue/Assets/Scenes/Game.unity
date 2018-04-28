@@ -6050,6 +6050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 667076770}
+  causeOfDeathText: {fileID: 0}
 --- !u!4 &766909451
 Transform:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class Shredder : MonoBehaviour
 
         else if (col.gameObject.GetComponent<PlayerInteraction>())
         {
+            GameManager.SetCauseOfDeath(GameManager.CauseOfDeath.LAVA);
             GameManager.GameOver();
         }
     }

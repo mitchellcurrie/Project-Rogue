@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
+//using DG.Tweening;
 
 public class ThirdPersonCamera : MonoBehaviour {
+
+   // public ItemManager IM;
 
     public Transform target;
     public float distance = 10.0f;
@@ -40,5 +43,11 @@ public class ThirdPersonCamera : MonoBehaviour {
         Quaternion rotation = Quaternion.Euler(currentY + 10.0f, currentX, 0);
         camTransform.position = target.position + rotation * dir;
         camTransform.LookAt(target.position);
+
+        //if (IM.collectionBar.fillAmount < 0.2f)
+        //{
+        //    camTransform.DOShakePosition(2.0f, 3.0f, 10, 90.0f, true);
+        //    Debug.Log("SHAKE!");
+        //}
     }
 }
