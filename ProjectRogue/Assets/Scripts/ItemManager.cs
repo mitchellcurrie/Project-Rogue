@@ -32,8 +32,8 @@ public class ItemManager : MonoBehaviour {
 
         if (collectionBar.fillAmount == 0.0f)
         {
-            GameManager.SetCauseOfDeath(GameManager.CauseOfDeath.TIME);
-            GameManager.GameOver();
+            //GameManager.SetCauseOfDeath(GameManager.CauseOfDeath.TIME);
+            //GameManager.GameOver();
         }
 
         // Orb Timing
