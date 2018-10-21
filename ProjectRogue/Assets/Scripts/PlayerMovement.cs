@@ -11,12 +11,10 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpDelay;
     public float jumpUpPower;
     public float jumpForwardPower;
-
     private Animator anim;
     private Vector3 velocity;
     private Vector3 moveDirection;
     private Camera cam;
-
     private Rigidbody rb;
     private float jumpTimer;
 

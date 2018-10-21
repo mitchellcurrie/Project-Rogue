@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spike : MonoBehaviour {
-
 	
-	private bool isLowering = false;
-	private bool isRising = false;
-	private float movementSpeed = 0.3f;
+	public bool isLowering = false;
+	public bool isRising = false;
+	private float movementSpeed = 0.1f;
 	private float startY;
 	private float endY = -1.0f;
 	private float resetTime = 7.0f;
