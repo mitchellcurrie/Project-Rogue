@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingWallManager : MonoBehaviour {
 
+    [Range(0,10.0f)]
     public float wallSpawnTime;
     private MovingWall[] wallArray;
     private float wallTimer;

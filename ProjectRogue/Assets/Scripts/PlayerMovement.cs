@@ -7,7 +7,10 @@ using XboxCtrlrInput;
 
 public class PlayerMovement : MonoBehaviour {
 
+    [Header("Movement")]
     public float speed;
+    [Space]
+    [Header("Jumping")]
     public float jumpDelay;
     public float jumpUpPower;
     public float jumpForwardPower;
