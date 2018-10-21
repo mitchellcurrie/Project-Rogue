@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeController : MonoBehaviour {
 	private Spike[] spikes;
-	private float waitTime = 5.0f;
+	private const float waitTime = 5.0f;
 	// Use this for initialization
 	void Start () {
 

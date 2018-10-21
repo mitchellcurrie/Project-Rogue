@@ -6,10 +6,10 @@ public class Spike : MonoBehaviour {
 	
 	public bool isLowering = false;
 	public bool isRising = false;
-	private float movementSpeed = 0.1f;
+	private const float movementSpeed = 0.1f;
 	private float startY;
-	private float endY = -1.0f;
-	private float resetTime = 7.0f;
+	private const float endY = -1.0f;
+	private const float resetTime = 7.0f;
 
 	// Use this for initialization
 	void Start () {
